@@ -14,7 +14,9 @@ const Application = () => {
       <h1>Job Application Form</h1>
       <h2>Section 1</h2>
       <p>All fields are mandatory</p>
+      <span title = 'close'>x</span>
       <img src= "https://source.unsplash.com/random/300x300" alt = "something cute"/>
+      <div data-testid = "custom-element">Custom HTML element</div>
       <form onSubmit={handleSubmit}>
         {/* NAME INPUT ELEMENT */}
         <div>

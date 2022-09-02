@@ -1,21 +1,33 @@
 import { screen, render } from "@testing-library/react";
 import Application from "./Application";
 
-/**   QUERY METHODS
+/** RTL QUERY METHODS
  * getByRole() - the role of the element: see options here (https://testing-library.com/docs/queries/byrole)
  * getLabelText()  - search for matching given text
  * getByPlaceholderText()  - search element with a placeholder attribute, find one that matches the given text
  * getByText() = elements that have a text matching the given text
  * getByDisplayValue() - return the element that has matching value e.i ["input", 'textarea', "select"]
  * getByAltText() - return the element that given al text e.i ["image", "input", "area"]
- *
+ * getByTitle() - element that has the matching title attribute e.i span
+ * getByTestId() - element that has teh matching data-testid attribute
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
  * level: level of heading e.i h1, h2
- *
  * }
  * */
+
+/* PRIORITIES */
+/**
+ * 1. getByRole()
+ * 2. getByLabelText()
+ * 3. getByPlaceholderText()
+ * 4. getByText()
+ * 5. getByDisplayValue()
+ * 6. getByAltText() 
+ * 7. getByTitle() 
+ * 8. getByTestId()
+ **/  
 
 describe("Application", () => {
   it("should render", () => {
@@ -24,19 +36,28 @@ describe("Application", () => {
     // getByRole h1
     const pageHeading = screen.getByRole("heading", {
       name: "Job Application Form",
-    });
+    }); 
     expect(pageHeading).toBeInTheDocument();
 
     // getByRole h2
     const sectionHeading = screen.getByRole("heading", { name: "Section 1" });
-    expect(sectionHeading).toBeInTheDocument();
+    expect(sectionHeading).toBeInTheDocument(); 
 
+    // getByAltText p
     const paragraphElement = screen.getByText("All fields are mandatory");
     expect(paragraphElement).toBeInTheDocument();
+
+    // getByTitle (span element)
+    const closeElement = screen.getByTitle('close');  
+    expect(closeElement).toBeInTheDocument();
 
     // getByAltText with image element
     const imgElement = screen.getByAltText("something cute")
     expect(imgElement).toBeInTheDocument();
+
+    //getByTestId(); (div element)
+    const  customElement = screen.getByTestId('custom-element')
+    expect(customElement).toBeInTheDocument();
 
     /*========================================================================*/
     // NAME INPUT ELEMENT
