@@ -2,6 +2,7 @@ import { screen, render } from "@testing-library/react";
 import Application from "./Application";
 
 /** RTL QUERY METHODS
+ * // getBy and getByAll queries
  * getByRole() - the role of the element: see options here (https://testing-library.com/docs/queries/byrole)
  * getLabelText()  - search for matching given text
  * getByPlaceholderText()  - search element with a placeholder attribute, find one that matches the given text
@@ -10,6 +11,7 @@ import Application from "./Application";
  * getByAltText() - return the element that given al text e.i ["image", "input", "area"]
  * getByTitle() - element that has the matching title attribute e.i span
  * getByTestId() - element that has teh matching data-testid attribute
+ * getAllBy() - returns array of all matching node for a query, and throws error if no elements match
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
