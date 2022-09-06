@@ -12,6 +12,7 @@ import Application from "./Application";
  * getByTitle() - element that has the matching title attribute e.i span
  * getByTestId() - element that has teh matching data-testid attribute
  * getAllBy() - returns array of all matching node for a query, and throws error if no elements match
+ * TextMath() - represents a type which can be either a [string, regex, function];
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
@@ -26,10 +27,10 @@ import Application from "./Application";
  * 3. getByPlaceholderText()
  * 4. getByText()
  * 5. getByDisplayValue()
- * 6. getByAltText() 
- * 7. getByTitle() 
+ * 6. getByAltText()
+ * 7. getByTitle()
  * 8. getByTestId()
- **/  
+ **/
 
 describe("Application", () => {
   it("should render", () => {
@@ -38,27 +39,29 @@ describe("Application", () => {
     // getByRole h1
     const pageHeading = screen.getByRole("heading", {
       name: "Job Application Form",
-    }); 
+    });
     expect(pageHeading).toBeInTheDocument();
 
     // getByRole h2
     const sectionHeading = screen.getByRole("heading", { name: "Section 1" });
-    expect(sectionHeading).toBeInTheDocument(); 
+    expect(sectionHeading).toBeInTheDocument();
 
-    // getByAltText p
-    const paragraphElement = screen.getByText("All fields are mandatory");
+    // getByAltText - options{}
+    const paragraphElement = screen.getByText((content) =>
+      content.startsWith("All")
+    );
     expect(paragraphElement).toBeInTheDocument();
 
     // getByTitle (span element)
-    const closeElement = screen.getByTitle('close');  
+    const closeElement = screen.getByTitle("close");
     expect(closeElement).toBeInTheDocument();
 
     // getByAltText with image element
-    const imgElement = screen.getByAltText("something cute")
+    const imgElement = screen.getByAltText("something cute");
     expect(imgElement).toBeInTheDocument();
 
     //getByTestId(); (div element)
-    const  customElement = screen.getByTestId('custom-element')
+    const customElement = screen.getByTestId("custom-element");
     expect(customElement).toBeInTheDocument();
 
     /*========================================================================*/
@@ -76,7 +79,7 @@ describe("Application", () => {
     expect(nameElement3).toBeInTheDocument();
 
     // getByDisplayValue()
-    const nameElement4 = screen.getByDisplayValue('Michael Padin');
+    const nameElement4 = screen.getByDisplayValue("Michael Padin");
     expect(nameElement4).toBeInTheDocument();
 
     //
