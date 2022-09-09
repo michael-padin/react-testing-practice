@@ -12,7 +12,7 @@ import Application from "./Application";
  * getByTitle() - element that has the matching title attribute e.i span
  * getByTestId() - element that has teh matching data-testid attribute
  * getAllBy() - returns array of all matching node for a query, and throws error if no elements match
- * TextMath() - represents a type which can be either a [string, regex, function];
+ * TextMatch() - represents a type which can be either a [string, regex, function];
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
