@@ -7,12 +7,12 @@ import Application from "./Application";
  * getLabelText()  - search for matching given text
  * getByPlaceholderText()  - search element with a placeholder attribute, find one that matches the given text
  * getByText() = elements that have a text matching the given text
+ *  -TextMatch - represents a type which can be either a [string, regex, function];
  * getByDisplayValue() - return the element that has matching value e.i ["input", 'textarea', "select"]
  * getByAltText() - return the element that given al text e.i ["image", "input", "area"]
  * getByTitle() - element that has the matching title attribute e.i span
  * getByTestId() - element that has teh matching data-testid attribute
  * getAllBy() - returns array of all matching node for a query, and throws error if no elements match
- * TextMatch() - represents a type which can be either a [string, regex, function];
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
