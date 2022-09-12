@@ -18,4 +18,21 @@ describe("Skills", () => {
     const listItemElement = screen.getAllByRole("listitem");
     expect(listItemElement).toHaveLength(skills.length);
   });
+
+  test('Start learning button is eventually displayed', async() => {
+    render(<Skills skills = {skills}/>)
+
+    // finBy -> has a default timeout of 1000 milliseconds
+    // findByRole -> returns a promise the resolves when an element is found
+    const startLearningButton = await screen.findByRole('button', {
+      name: 'Start learning'
+
+    },{
+      // third argument -> timeout to display the element
+      timeout: 2000,
+    })
+
+    expect(startLearningButton).toBeInTheDocument();
+
+  })
 });

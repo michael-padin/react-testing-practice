@@ -13,6 +13,8 @@ import Application from "./Application";
  * getByTitle() - element that has the matching title attribute e.i span
  * getByTestId() - element that has teh matching data-testid attribute
  * getAllBy() - returns array of all matching node for a query, and throws error if no elements match
+ * findBy() - returns a promise when an element is found
+ * findAllBy() - returns a promise which resolves to an array elements
  * OPTIONS: {
  * selector: type of element
  * name: inner text of label
