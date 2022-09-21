@@ -1,5 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, logRoles, screen } from "@testing-library/react";
 import Skills from "./Skills";
+
+
+/**
+ * screen.debug() = visualize formatted state of the DOM tree
+ *logRoles() = list of all implicit roles of the dom tree*/ 
 
 describe("Skills", () => {
   const skills = ["HTML", "CSS", "Javascript"];
@@ -20,7 +25,8 @@ describe("Skills", () => {
   });
 
   test('Start learning button is eventually displayed', async() => {
-    render(<Skills skills = {skills}/>)
+    const view = render(<Skills skills = {skills}/>)
+    logRoles(view.container)
 
     // finBy -> has a default timeout of 1000 milliseconds
     // findByRole -> returns a promise the resolves when an element is found
